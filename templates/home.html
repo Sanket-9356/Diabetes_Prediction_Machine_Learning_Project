@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diabetes Prediction System</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <style>
+    /* Global styling */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #36d1dc, #5b86e5);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    /* Container box */
+    .container {
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(8.5px);
+      border-radius: 20px;
+      padding: 40px;
+      width: 380px;
+      text-align: center;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    /* Title styling */
+    h1 {
+      font-size: 30px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    /* Health animation */
+    .health-img {
+      width: 180px;
+      margin-bottom: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* Input styling */
+    input {
+      width: 80%;
+      padding: 10px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+      transition: 0.3s ease;
+    }
+
+    input:focus {
+      box-shadow: 0 0 10px #fff;
+      transform: scale(1.03);
+    }
+
+    /* Predict button */
+    button {
+      background: linear-gradient(90deg, #36d1dc, #5b86e5);
+      border: none;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, #5b86e5, #36d1dc);
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    }
+
+    /* Result text */
+    .result {
+      margin-top: 20px;
+      font-size: 22px;
+      font-weight: 600;
+      animation: fadeIn 1s ease-in;
+    }
+
+    .result.diabetic {
+      color: #ff6b6b;
+    }
+
+    .result.nondiabetic {
+      color: #32ff7e;
+    }
+
+    @keyframes fadeInUp {
+      0% { transform: translateY(40px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    footer {
+      position: absolute;
+      bottom: 15px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container animate__animated animate__fadeInDown">
+    <!-- <img class="health-img" src="https://cdn.dribbble.com/users/926537/screenshots/4502924/healthcare-animation.gif" alt="Health Animation"> -->
+    <h1>🩺 Diabetes Prediction</h1>
+    <form action="{{ url_for('predict_datapoint') }}" method="post">
+      <input type="number" step="1" name="Pregnancies" placeholder="Pregnancies" required>
+      <input type="number" step="0.1" name="Glucose" placeholder="Glucose" required>
+      <input type="number" step="0.1" name="BloodPressure" placeholder="Blood Pressure" required>
+      <input type="number" step="0.1" name="SkinThickness" placeholder="Skin Thickness" required>
+      <input type="number" step="0.1" name="Insulin" placeholder="Insulin" required>
+      <input type="number" step="0.1" name="BMI" placeholder="BMI" required>
+      <input type="number" step="0.01" name="DiabetesPedigreeFunction" placeholder="Diabetes Pedigree Function" required>
+      <input type="number" step="1" name="Age" placeholder="Age" required>
+      <button type="submit">Predict</button>
+    </form>
+
+    {% if result %}
+      <div class="result {% if result == 'Diabetic' %}diabetic{% else %}nondiabetic{% endif %}">
+        {{ result }}
+      </div>
+    {% endif %}
+  </div>
+
+  <footer>© 2025 Smart Health AI | Powered by Machine Learning</footer>
+</body>
+</html>

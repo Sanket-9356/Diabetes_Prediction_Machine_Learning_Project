@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prediction Result</title>
+
+  <!-- Fonts & Animation -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      background: linear-gradient(135deg, #36d1dc, #5b86e5);
+      overflow: hidden;
+    }
+
+    .result-box {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 25px;
+      padding: 50px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      animation: zoomIn 1s ease-in-out;
+    }
+
+    .result-box h1 {
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .result-box p {
+      font-size: 20px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .diabetic {
+      color: #ff6b6b;
+      text-shadow: 0 0 10px rgba(255, 107, 107, 0.6);
+    }
+
+    .nondiabetic {
+      color: #00fa9a;
+      text-shadow: 0 0 10px rgba(0, 250, 154, 0.6);
+    }
+
+    .result-img {
+      width: 250px;
+      border-radius: 20px;
+      margin-top: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .back-btn {
+      background-color: white;
+      color: #5b86e5;
+      padding: 12px 35px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 30px;
+      transition: 0.3s ease;
+      text-decoration: none;
+    }
+
+    .back-btn:hover {
+      background-color: #f8f8f8;
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.7); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    footer {
+      position: absolute;
+      bottom: 15px;
+      color: rgba(255,255,255,0.8);
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="result-box animate__animated animate__fadeInDown">
+    {% if result == 'Diabetic' %}
+      <h1 class="diabetic">⚠️ Person is: {{ result }}</h1>
+      <p>It’s recommended to consult a healthcare professional for further diagnosis and care.</p>
+      <!-- <img class="result-img" src="https://cdn.dribbble.com/users/273503/screenshots/3819495/medical_diagnosis.gif" alt="Diabetic Alert"> -->
+    {% else %}
+      <h1 class="nondiabetic">✅ Person is: {{ result }}</h1>
+      <p>Great! The person shows no signs of diabetes risk. Keep up your healthy lifestyle!</p>
+      <!-- <img class="result-img" src="https://cdn.dribbble.com/users/926537/screenshots/4502924/healthcare-animation.gif" alt="Healthy Animation"> -->
+    {% endif %}
+    <a href="/" class="back-btn">⬅ Back to Home</a>
+  </div>
+
+  <footer>© 2025 Smart Health AI | Powered by Machine Learning</footer>
+</body>
+</html>

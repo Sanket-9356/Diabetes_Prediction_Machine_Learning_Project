@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Diabetes Prediction System</title>
+
+  <!-- Fonts & Animations -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #36d1dc, #5b86e5);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      animation: fadeInDown 1.2s ease;
+    }
+
+    p {
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      color: #f5f5f5;
+      animation: fadeIn 2s ease;
+    }
+
+    .btn {
+      background: white;
+      color: #5b86e5;
+      border: none;
+      padding: 15px 40px;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      transition: 0.3s ease;
+      animation: fadeInUp 1.5s ease;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: #f8f8f8;
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255,255,255,0.4);
+    }
+
+    .hero-img {
+      width: 500px;
+      border-radius: 20px;
+      margin-bottom: 30px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+      100% { transform: translateY(0px); }
+    }
+
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      position: absolute;
+      bottom: 15px;
+      color: rgba(255,255,255,0.7);
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <!-- <img class="hero-img" src="bg.png"   alt="Health Animation"> -->
+  
+  <h1 class="animate__animated animate__fadeInDown">Welcome to Diabetes Prediction System</h1>
+  <p class="animate__animated animate__fadeIn">Your AI-powered assistant to predict diabetes risk based on your health details. Let’s take a step toward a healthier tomorrow!</p>
+
+  <a href="/predictdata" class="btn animate__animated animate__fadeInUp">Start Prediction</a>
+
+  <footer>© 2025 Smart Health AI | Built with ❤️ using Flask & Machine Learning</footer>
+</body>
+</html>
