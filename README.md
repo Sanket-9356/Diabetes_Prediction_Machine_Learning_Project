@@ -5,7 +5,7 @@
 ---
 
 <p align="center">
-  <img src="Diabetes_png.png" alt="Project Banner" width="100%" >
+  <img src="diabetes.jpg" alt="Project Banner" width="100%" >
 </p>
 
 ---
