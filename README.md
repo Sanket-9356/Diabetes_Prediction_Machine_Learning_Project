@@ -4,17 +4,17 @@
 
 ---
 
-<p align="center">
-  <img src="diabetes.jpg" alt="Project Banner" width="100%" >
-</p>
 
----
 
 A **Machine Learning project** that predicts whether a person is likely to have **Diabetes** based on key health indicators such as glucose level, BMI, insulin, and age.  
 This project demonstrates a complete **end-to-end ML workflow** — from data preprocessing to model training and evaluation using **Python** and **Scikit-learn**.
 
----
 
+<p align="center">
+  <img src="c_image.png" alt="Project Banner" width="100%" >
+</p>
+
+---
 ## 📁 Project Overview
 
 The **PIMA Indians Diabetes Dataset** from the UCI repository is used in this project.  
